@@ -1,0 +1,97 @@
+.bg{
+    position: relative;
+}
+
+.bgimg{
+    height: 100vh;
+    width: 100vw;
+    background-repeat : no-repeat;
+    background-size : cover;
+}
+
+.main-box{
+    position: absolute;
+    min-height: 100vh;
+    min-width: 200vh;
+    padding-top: 5vh;
+    padding-left: 10vh;
+}
+
+#log-In-Input{
+    width: 500px;
+    height: 32px;
+    font-size: larger;
+    color: white;
+    border-color: white;
+    outline: none;
+    background: transparent;
+    padding: 1vh;
+    padding-left: 10px;
+    border-radius: 15px;
+    margin: 2vh;
+}
+
+#greeting{
+    color: white;
+}
+
+#log-In{
+    color: white;
+    font-size: xx-large;
+    display: grid;
+    place-items: center;
+    min-height: 30vh;
+    padding-top: 30vh;
+}
+
+#log-In button{
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    color: grey;
+    border-color: white;
+    background-color: white;
+}
+
+.geo-info, #clock, .todo{
+    font-size: larger;
+    font-weight: 500;
+    padding: 2vh;
+    color: white;
+}
+
+.todo{
+    border-radius: 15px;
+    border-color: white;
+    border-style: dashed;
+    width: 50vh;
+    color: white;
+}
+
+#todo-form input{
+    width: 200px;
+    height: 15px;
+    font-size: small;
+    color: grey;
+    border-color: white;
+    outline: none;
+    background-color: white;
+    padding: 1vh;
+    padding-left: 10px;
+    border-radius: 15px;
+}
+
+li{
+    list-style-type:circle;
+    color: white;
+    padding-left: 2vh;
+    padding-top: 2vh;
+}
+
+li button{
+    border-color: white;
+    background: transparent;
+    margin-left: 10px;
+    width: 30px;
+    height: auto;
+}
