@@ -15,7 +15,7 @@ function onGeoOk(position){
     });//js가 자동으로 url 요청, 검사의 network탭에서 확인 가능
 }
 function onGeoError (){
-    alert("Can't find you");
+    alert("Can't find you!");
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);//브라우저에서 현재위치를 보냄
