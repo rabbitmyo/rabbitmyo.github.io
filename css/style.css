@@ -95,3 +95,14 @@ li button{
     width: 30px;
     height: auto;
 }
+
+#progress {
+    width: 100%;
+    background-color: grey;
+}
+  
+#bar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+}
