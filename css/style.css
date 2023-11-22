@@ -97,12 +97,16 @@ li button{
 }
 
 #progress {
-    width: 100%;
-    background-color: grey;
+    width: 30%;
+    background-color: #C7C7C7;
+    border-radius: 15px;
 }
   
 #bar {
     width: 1%;
-    height: 30px;
-    background-color: green;
+    height: 20px;
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
 }

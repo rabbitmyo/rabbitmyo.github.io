@@ -1,3 +1,13 @@
+const timerNum = document.getElementById('timer-box input');
+console.log('timerNum:',timerNum);
+const startBtn = document.getElementById('timer-start');
+console.log('startBtn:',startBtn);
+const endBtn = document.getElementById('timer-end');
+console.log('endBtn:',endBtn);
+const percentSpan = document.getElementById('percent');
+percentSpan.innerHTML = 'get';
+
+
 var i = 0;
 function move() {
   if (i == 0) {
@@ -12,9 +22,11 @@ function move() {
       } else {
         width++;
         elem.style.width = width + "%";
+        percentSpan.innerText = width +"%";
       }
     }
   }
 }
 
-move();
+//move();
+startBtn.addEventListener("click", move);
