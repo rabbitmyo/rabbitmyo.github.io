@@ -1,26 +1,23 @@
 const timerMinInput = document.querySelector('#timer-box input');
 const startBtn = document.getElementById('timer-start');
-const endBtn = document.getElementById('timer-end');
+const endBtn = document.getElementById('timer-stop');
 const percentSpan = document.getElementById('percent');
 const timerPrintSpan = document.getElementById('timer-print');
 
-function countdownPrint(timerMinTimestamp){
-  let countdownTimestamp = timerMinTimestamp;
-  let hours = Math.floor(countdownTimestamp/1000/60/60);
-  let minutes = Math.floor((countdownTimestamp-1000/60)-(hours*60));
-  let seconds = Math.floor((countdownTimestamp/1000)-(minutes*60*1000)-(hours*60*60*1000));
+//흐르는 시간을 활용하여 타이머 기능 구현
+//00:00:00 표시 형태로 출력할 것
+function countdownPrint(endTimestamp){
+  const nowTimestamp = new Date().getTime();
+  let countdownTimestamp = endTimestamp-nowTimestamp;
   
-  
-  function getCountdown(seconds,minutes,hours){
+  console.log('countdownTimestamp',countdownTimestamp);
+  if(countdownTimestamp>0){
+    let hours = String(Math.floor(countdownTimestamp/1000/60/60)).padStart(2,0);
+    let minutes = String(Math.floor((countdownTimestamp/1000/60)-(hours*60))).padStart(2,0);
+    let seconds = String(Math.floor((countdownTimestamp/1000)-(minutes*60)-(hours*60*60))).padStart(2,0);
     let printText = `${hours} : ${minutes} : ${seconds}`;
     timerPrintSpan.innerText = printText;
   }
-  if(countdownTimestamp !==0){
-    setInterval(getCountdown(seconds,minutes,hours),1000);
-    countdownTimestamp -= 1000;
-  }
-  //00:00:00 표시 형태
-  
 }
 
 var i = 0;
@@ -28,8 +25,8 @@ function move() {
   const startTimestamp = new Date().getTime(); //시작시간
   const timerMinTimestamp = (timerMinInput.value)*60*1000; //timestamp로 환산한 min
   const endTimestamp = startTimestamp+timerMinTimestamp; //종료시간 timestamp
-  countdownPrint(timerMinTimestamp);
-  //console.log('startTimestamp',startTimestamp);
+  let printInterval = setInterval(countdownPrint,1000,endTimestamp)
+
   const onePercentTimestamp = timerMinTimestamp/100;
   if (i == 0) {
     i = 1;
@@ -46,7 +43,15 @@ function move() {
           percentSpan.innerText = width +"%";
         }
       }
+    endBtn.addEventListener("click",stopTimer); //종료버튼 이벤트리스너
+      function stopTimer(countdownTimestamp){
+        console.log('stop timer');
+        clearInterval(printInterval);
+        clearInterval(id);
+      }
   }
 }
+
+
 
 startBtn.addEventListener("click", move);
